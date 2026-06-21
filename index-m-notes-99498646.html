@@ -1,0 +1,398 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>hth · 主题探索杂志</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', 'Times New Roman', '宋体', serif;
+            background: #f9f7f4;
+            color: #2d2a26;
+            line-height: 1.7;
+            -webkit-font-smoothing: antialiased;
+        }
+
+        /* 极简留白容器 */
+        .container {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 2.5rem 1.5rem 4rem;
+        }
+
+        /* --- Hero 横幅 --- */
+        .hero {
+            margin-bottom: 3rem;
+            padding: 2.8rem 0;
+            border-bottom: 1px solid #d9d2cb;
+            text-align: center;
+        }
+
+        .hero-label {
+            display: inline-block;
+            font-size: 0.75rem;
+            letter-spacing: 0.3em;
+            text-transform: uppercase;
+            color: #8f867c;
+            border: 1px solid #d9d2cb;
+            padding: 0.2rem 1rem;
+            margin-bottom: 1.8rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .hero h1 {
+            font-size: 2.8rem;
+            font-weight: 400;
+            letter-spacing: 0.05em;
+            color: #1f1b18;
+            margin-bottom: 1rem;
+        }
+
+        .hero p {
+            font-size: 1.05rem;
+            color: #5d554c;
+            max-width: 580px;
+            margin: 0 auto;
+            font-style: italic;
+        }
+
+        /* --- 背景说明 --- */
+        .background-note {
+            background: #f0ebe5;
+            padding: 2rem 2.2rem;
+            margin-bottom: 3rem;
+            border-radius: 4px;
+            font-size: 0.95rem;
+            color: #3d3731;
+        }
+
+        .background-note em {
+            font-style: italic;
+            color: #7b6e62;
+        }
+
+        .background-note strong {
+            font-weight: 600;
+            color: #2d2a26;
+        }
+
+        /* --- 正文卡片式段落 --- */
+        .article-section {
+            margin-bottom: 2.8rem;
+        }
+
+        .article-section h2 {
+            font-size: 1.5rem;
+            font-weight: 400;
+            letter-spacing: 0.02em;
+            color: #2d2a26;
+            margin-bottom: 0.5rem;
+            border-left: 3px solid #b8a899;
+            padding-left: 1rem;
+        }
+
+        .article-section .subhead {
+            font-size: 0.85rem;
+            color: #91857a;
+            text-transform: uppercase;
+            letter-spacing: 0.12em;
+            margin-bottom: 0.8rem;
+            font-family: 'Arial', sans-serif;
+        }
+
+        .article-section p {
+            margin-bottom: 1.2rem;
+            font-size: 1rem;
+            color: #3d3731;
+        }
+
+        .article-section p:last-child {
+            margin-bottom: 0;
+        }
+
+        .inline-link {
+            color: #8a6f54;
+            text-decoration: none;
+            border-bottom: 1px solid #cbbeb2;
+            transition: border-color 0.2s;
+        }
+
+        .inline-link:hover {
+            border-bottom-color: #7b6e62;
+            color: #5d4c3b;
+        }
+
+        /* --- 引语卡片 --- */
+        .pull-quote {
+            margin: 2.5rem 0 2.5rem 2rem;
+            padding: 1.2rem 1.8rem;
+            border-left: 2px solid #cbbeb2;
+            background: #f6f2ed;
+            font-style: italic;
+            color: #5d554c;
+            font-size: 1.05rem;
+            border-radius: 0 4px 4px 0;
+        }
+
+        .pull-quote cite {
+            display: block;
+            margin-top: 0.6rem;
+            font-size: 0.85rem;
+            font-style: normal;
+            color: #91857a;
+            letter-spacing: 0.05em;
+        }
+
+        /* --- 特点/场景混合 --- */
+        .feature-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.2rem;
+            margin: 2rem 0 2.5rem;
+        }
+
+        .feature-item {
+            flex: 1 1 180px;
+            background: #fffcf9;
+            padding: 1.4rem 1.2rem;
+            border-radius: 4px;
+            border: 1px solid #e3dbd2;
+            transition: box-shadow 0.2s;
+        }
+
+        .feature-item:hover {
+            box-shadow: 0 2px 12px rgba(0,0,0,0.04);
+        }
+
+        .feature-item .num {
+            font-size: 0.75rem;
+            color: #b8a899;
+            letter-spacing: 0.15em;
+            font-family: 'Arial', sans-serif;
+            margin-bottom: 0.4rem;
+        }
+
+        .feature-item h3 {
+            font-size: 1.1rem;
+            font-weight: 500;
+            margin-bottom: 0.4rem;
+            color: #2d2a26;
+        }
+
+        .feature-item p {
+            font-size: 0.9rem;
+            color: #5d554c;
+            line-height: 1.5;
+        }
+
+        /* --- FAQ 摘要 --- */
+        .faq-summary {
+            margin: 2.8rem 0;
+            border-top: 1px solid #e3dbd2;
+            padding-top: 1.8rem;
+        }
+
+        .faq-summary h3 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: #5d554c;
+            letter-spacing: 0.04em;
+            margin-bottom: 1.2rem;
+        }
+
+        .faq-item {
+            margin-bottom: 1rem;
+        }
+
+        .faq-item .q {
+            font-weight: 600;
+            color: #3d3731;
+            font-size: 0.95rem;
+        }
+
+        .faq-item .a {
+            font-size: 0.9rem;
+            color: #5d554c;
+            margin-top: 0.2rem;
+            padding-left: 1.2rem;
+            border-left: 2px solid #e3dbd2;
+        }
+
+        /* --- 页尾提示 --- */
+        .footer-hint {
+            margin-top: 3.5rem;
+            padding-top: 2rem;
+            border-top: 1px solid #d9d2cb;
+            text-align: center;
+            font-size: 0.9rem;
+            color: #7b6e62;
+        }
+
+        .footer-hint .btn-like {
+            display: inline-block;
+            margin: 0.8rem 0 0.3rem;
+            padding: 0.6rem 2rem;
+            border: 1px solid #b8a899;
+            border-radius: 30px;
+            color: #5d4c3b;
+            background: transparent;
+            text-decoration: none;
+            font-size: 0.85rem;
+            letter-spacing: 0.08em;
+            transition: background 0.2s, color 0.2s;
+        }
+
+        .footer-hint .btn-like:hover {
+            background: #e3dbd2;
+            color: #2d2a26;
+        }
+
+        /* --- 响应式 --- */
+        @media (max-width: 580px) {
+            .container {
+                padding: 1.8rem 1rem 3rem;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 0.95rem;
+            }
+
+            .background-note {
+                padding: 1.5rem;
+            }
+
+            .article-section h2 {
+                font-size: 1.25rem;
+                padding-left: 0.8rem;
+            }
+
+            .pull-quote {
+                margin-left: 0;
+                padding: 1rem 1.2rem;
+            }
+
+            .feature-grid {
+                flex-direction: column;
+                gap: 1rem;
+            }
+
+            .feature-item {
+                flex: 1 1 auto;
+            }
+
+            .faq-item .a {
+                padding-left: 0.8rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.7rem;
+            }
+
+            .footer-hint .btn-like {
+                padding: 0.5rem 1.5rem;
+                font-size: 0.8rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Hero 横幅 -->
+        <header class="hero">
+            <div class="hero-label">专题 · 本质</div>
+            <h1>hth 的注脚</h1>
+            <p>一条来自信息腹地的线索，连接着认知与体验。</p>
+        </header>
+
+        <!-- 背景说明 -->
+        <div class="background-note">
+            <p><strong>关于这次探索</strong> —— 在数字内容不断分化的年代，<a href="https://index-m-hth.com" class="inline-link">hth</a> 作为一个承载着多重意义的索引，它所指向的并非单一页面，而是一组复合的叙事可能。我们无意夸大其功能，更愿意把它看作一个观察的切口：当用户输入这三个字母时，背后是信息组织方式与个体需求之间的微妙互动。</p>
+        </div>
+
+        <!-- 三段自然介绍 -->
+        <section class="article-section">
+            <div class="subhead">第一面 · 语境</div>
+            <h2>从字母到入口</h2>
+            <p>三个字符的序列，在互联网的坐标系里往往被赋予简洁的使命。但简洁不等于单薄。很多资源聚合类站点选择用简短标识来降低记忆门槛，而 <a href="https://index-m-hth.com" class="inline-link">hth</a> 恰好处于这个逻辑的交叉点：它既是名称，也是路径；既有辨识度，又保留了拓展空间。从使用者的角度看，一个干净的索引页意味着更少的干扰，更多的自主选择。</p>
+            <p>这种设计的核心在于信任——相信用户有能力在有限的信息提示下做出判断。因此，这类页面通常不会堆砌装饰元素，而是用克制的视觉语言传递“你可以从这里开始”的信号。</p>
+        </section>
+
+        <section class="article-section">
+            <div class="subhead">第二面 · 结构</div>
+            <h2>索引的层次感</h2>
+            <p>一个好的索引应当像书架上的分类标签，既不抢眼，也不缺席。<a href="https://index-m-hth.com" class="inline-link">hth</a> 的页面结构遵循了类似的逻辑：首先确保可读性与可达性，其次才是视觉上的适度点缀。背景的温润色调、清晰的标题层级、以及留白带来的呼吸感，都在为内容的呈现让路。</p>
+            <p>在实际使用场景中，用户可能带着不同的预期进入这个页面——有的人希望快速定位资源，有的人则想了解背后的主题脉络。因此，页面内容需要在“引导”与“留白”之间找到平衡，既不替用户做决定，也不让他们迷失。</p>
+
+            <!-- 引语卡片 -->
+            <div class="pull-quote">
+                “最克制的设计，往往说着最丰富的话——它把阐释的权利交还给观看者。”
+                <cite>—— 界面观察笔记</cite>
+            </div>
+
+            <p>这种设计哲学并不新鲜，但在信息过载时代，它变得尤为珍贵。当大多数页面都在争夺注意力时，一个选择后退的界面反而更能让人停留。</p>
+        </section>
+
+        <!-- 特点与场景混合卡片 -->
+        <div class="feature-grid">
+            <div class="feature-item">
+                <div class="num">/ 01</div>
+                <h3>轻量入口</h3>
+                <p>快速加载，无冗余脚本，适配各种网络环境，降低访问门槛。</p>
+            </div>
+            <div class="feature-item">
+                <div class="num">/ 02</div>
+                <h3>主题延伸</h3>
+                <p>以 hth 为轴心，提供相关方向的内容索引，便于深度浏览。</p>
+            </div>
+            <div class="feature-item">
+                <div class="num">/ 03</div>
+                <h3>场景兼容</h3>
+                <p>无论在桌面端还是移动端，信息层级保持清晰，阅读节奏可控。</p>
+            </div>
+        </div>
+
+        <section class="article-section">
+            <div class="subhead">第三面 · 节奏</div>
+            <h2>体验的呼吸</h2>
+            <p>访问一个索引页的过程，类似翻开一本杂志的开篇。不需要立刻抵达结论，而是先感受整体的调性。hth 页面所营造的温和氛围，正是在回应这种心理节奏。文字段落不急于推销，视觉元素不试图喧宾夺主——一切都围绕“自然过渡”展开。</p>
+            <p>从首页横幅到后面的内容模块，读者可以按照自己的兴趣跳跃浏览，也可以顺着段落的逻辑线一路读下去。这种非线性的结构，既保留了杂志的叙事感，又吸收了 web 的互动性。</p>
+        </section>
+
+        <!-- FAQ 摘要 -->
+        <div class="faq-summary">
+            <h3>常见理解片段</h3>
+            <div class="faq-item">
+                <div class="q">Q：这个索引页主要提供什么？</div>
+                <div class="a">A：它更像是一个出发点，围绕 hth 这个关键词整理出若干内容方向，让访问者根据自身需求选择下一步。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">Q：页面风格为什么这么简洁？</div>
+                <div class="a">A：减少认知负荷，突出信息本身。简洁不等于单调，每一种间距、每一级标题都经过考量，为的是让阅读更流畅。</div>
+            </div>
+            <div class="faq-item">
+                <div class="q">Q：我可以期待怎样的后续内容？</div>
+                <div class="a">A：当前页面呈现的是基础框架，后续会围绕主题做更细致的分层，可能包含专题文章、资源集合或交互式索引。</div>
+            </div>
+        </div>
+
+        <!-- 页尾访问提示 -->
+        <footer class="footer-hint">
+            <p>如果你对这条线索背后的更多层次感到好奇，不妨记下这个名字：</p>
+            <a href="https://index-m-hth.com" class="btn-like">hth</a>
+            <p style="margin-top: 0.8rem; font-size: 0.8rem; color: #91857a;">—— 一个值得安静品读的索引坐标</p>
+        </footer>
+    </div>
+</body>
+</html>
